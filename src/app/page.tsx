@@ -1,6 +1,9 @@
+"use client"
+
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import ThemeToggle from "@/components/theme-toggle";
-import WhatsTheWeather from "@/components/whats-the-weather";
+const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false });
+const WhatsTheWeather = dynamic(() => import("@/components/whats-the-weather"), { ssr: false });
 
 const dob = new Date(1994, 4, 1, 0, 0, 0, 0).getTime();
 const now = new Date().getTime();
