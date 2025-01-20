@@ -107,8 +107,8 @@ export default function WhatsTheWeather() {
             }
             {
                 (forecast) ?
-                    <ol className="list-disc">
-                        <li>Timestamp: {forecast.timestamp.toLocaleString()}</li>
+                    <ol className="text-center">
+                        <li>{forecast.timestamp.toLocaleString()}</li>
                         <li>
                             <p
                                 className="cursor-pointer hover:underline hover:underline-offset-4" onClick={() => onUnitChanged(unit === "celsius")}
