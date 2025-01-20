@@ -5,7 +5,6 @@ import Image from "next/image";
 const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false });
 const WhatsTheWeather = dynamic(() => import("@/components/whats-the-weather"), { ssr: false });
 
-debugger;
 import { version } from '../../package.json';
 
 const dob = new Date(1994, 4, 1, 0, 0, 0, 0).getTime();
@@ -39,7 +38,7 @@ export default function Home() {
           priority
         />
 
-        <pre className="text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)] rounded font-semibold bg-black/[.05] dark:bg-white/[.06] p-4">
+        <pre className="text-sm text-left font-[family-name:var(--font-geist-mono)] rounded font-semibold bg-black/[.05] dark:bg-white/[.06] p-4">
           <code>
             {biography}
           </code>
