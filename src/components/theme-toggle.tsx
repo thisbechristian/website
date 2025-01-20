@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const getInitialTheme = () => {
-    const theme: string | undefined = window.localStorage ? window.localStorage.theme : undefined;
+    const theme: string | undefined = localStorage ? localStorage.theme : undefined;
     const prefersDarkTheme: boolean = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if ((theme === 'dark') || (!theme && prefersDarkTheme)) {
         return 'dark';
