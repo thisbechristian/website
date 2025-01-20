@@ -47,10 +47,8 @@ const getForecast = async (latitude: number, longitude: number, temperature_unit
     currentTimeByTheHour.setSeconds(0);
     currentTimeByTheHour.setMilliseconds(0);
 
-    debugger
     const currentTime: string = currentTimeByTheHour.toISOString().split(".")[0];
     const index: number = data.hourly.time.findIndex((time: string) => ((time + ":00") === currentTime));
-    console.log(index);
 
     const temperature: string = data.hourly.temperature_2m[index] + temperatureUnit;
     const precipitation: string = data.hourly.precipitation_probability[index] + precipitationUnit;
