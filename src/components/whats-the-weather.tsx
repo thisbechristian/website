@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 interface Forecast {
+    timestamp: Date;
     temperature: string;
     precipitation: string;
 }
@@ -50,10 +51,11 @@ const getForecast = async (latitude: number, longitude: number, temperature_unit
     const currentTime: string = currentTimeByTheHour.toISOString().split(".")[0];
     const index: number = data.hourly.time.findIndex((time: string) => ((time + ":00") === currentTime));
 
+    const timestamp: Date = new Date();
     const temperature: string = data.hourly.temperature_2m[index] + temperatureUnit;
     const precipitation: string = data.hourly.precipitation_probability[index] + precipitationUnit;
 
-    return { temperature, precipitation };
+    return { timestamp, temperature, precipitation };
 }
 
 export default function WhatsTheWeather() {
@@ -109,6 +111,7 @@ export default function WhatsTheWeather() {
             {
                 (forecast) ?
                     <ol className="list-disc">
+                        <li>Timestamp: {forecast.timestamp.toLocaleString()}</li>
                         <li>
                             <p
                                 className="cursor-pointer hover:underline hover:underline-offset-4" onClick={() => onUnitChanged(unit === "celsius")}
