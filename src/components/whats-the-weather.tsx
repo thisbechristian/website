@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface Forecast {
     timestamp: Date;
@@ -20,8 +20,8 @@ const getLocation = async () => {
         try {
             const position = await getCurrentPosition();
             return position;
-        } catch (error: any) {
-            alert(error.message);
+        } catch (error) {
+            alert((error as Error).message);
         }
     } else {
         alert("Geolocation not supported");
@@ -30,13 +30,10 @@ const getLocation = async () => {
 
 const getForecast = async (latitude: number, longitude: number, temperature_unit: string = "fahrenheit") => {
     const url: URL = new URL("https://api.open-meteo.com/v1/forecast");
-    const parameters: any = {
-        latitude,
-        longitude,
-        temperature_unit,
-        hourly: "temperature_2m,precipitation_probability",
-    }
-    Object.keys(parameters).forEach(key => url.searchParams.append(key, parameters[key]))
+    url.searchParams.append("latitude", String(latitude));
+    url.searchParams.append("longitude", String(longitude));
+    url.searchParams.append("temperature_unit", temperature_unit);
+    url.searchParams.append("hourly", "temperature_2m,precipitation_probability");
     const response: Response = await fetch(url);
     const data = await response.json();
 
@@ -105,7 +102,7 @@ export default function WhatsTheWeather() {
                             width={20}
                             height={20}
                         />
-                        what's the weather gon' be?
+                        {`what's the weather gon' be?`}
                     </span>
             }
             {
