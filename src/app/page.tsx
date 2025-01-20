@@ -2,8 +2,9 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
-const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false });
-const WhatsTheWeather = dynamic(() => import("@/components/whats-the-weather"), { ssr: false });
+import Spinner from "@/components/spinner";
+const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false, loading: () => <Spinner /> });
+const WhatsTheWeather = dynamic(() => import("@/components/whats-the-weather"), { ssr: false, loading: () => <Spinner /> });
 
 import { version } from '../../package.json';
 
@@ -46,7 +47,9 @@ export default function Home() {
           </pre>
         </div>
 
-        <WhatsTheWeather />
+        <div className="self-center items-center">
+          <WhatsTheWeather />
+        </div>
       </main>
       <footer className="flex flex-col gap-6 items-center">
         <div className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
