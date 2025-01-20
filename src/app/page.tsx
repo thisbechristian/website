@@ -5,6 +5,9 @@ import Image from "next/image";
 const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false });
 const WhatsTheWeather = dynamic(() => import("@/components/whats-the-weather"), { ssr: false });
 
+debugger;
+import { version } from '../../package.json';
+
 const dob = new Date(1994, 4, 1, 0, 0, 0, 0).getTime();
 const now = new Date().getTime();
 const age = Math.floor((now - dob) / (365 * 24 * 60 * 60 * 1000));
@@ -44,53 +47,56 @@ export default function Home() {
 
         <WhatsTheWeather />
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="mailto:christianjboni@gmail.com"
-        >
-          <Image
-            className="dark:invert"
-            aria-hidden
-            src="./email.svg"
-            alt="Email"
-            width={20}
-            height={20}
-          />
-          Email
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://www.linkedin.com/in/christianboni"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            className="dark:invert"
-            aria-hidden
-            src="./linkedin.svg"
-            alt="LinkedIn"
-            width={20}
-            height={20}
-          />
-          LinkedIn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://github.com/thisbechristian?tab=repositories"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            className="dark:invert"
-            aria-hidden
-            src="./github.svg"
-            alt="GitHub"
-            width={20}
-            height={20}
-          />
-          GitHub
-        </a>
+      <footer className="flex flex-col gap-6 items-center">
+        <div className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="mailto:christianjboni@gmail.com"
+          >
+            <Image
+              className="dark:invert"
+              aria-hidden
+              src="./email.svg"
+              alt="Email"
+              width={20}
+              height={20}
+            />
+            Email
+          </a>
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://www.linkedin.com/in/christianboni"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className="dark:invert"
+              aria-hidden
+              src="./linkedin.svg"
+              alt="LinkedIn"
+              width={20}
+              height={20}
+            />
+            LinkedIn
+          </a>
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://github.com/thisbechristian?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className="dark:invert"
+              aria-hidden
+              src="./github.svg"
+              alt="GitHub"
+              width={20}
+              height={20}
+            />
+            GitHub
+          </a>
+        </div>
+        <span className="text-zinc-500">{`version: ${version}`}</span>
       </footer>
     </div>
   );
