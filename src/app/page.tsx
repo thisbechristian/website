@@ -38,11 +38,13 @@ export default function Home() {
           priority
         />
 
-        <pre className="text-sm text-left font-[family-name:var(--font-geist-mono)] rounded font-semibold bg-black/[.05] dark:bg-white/[.06] p-4">
-          <code>
-            {biography}
-          </code>
-        </pre>
+        <div className="max-w-[75vw] overflow-scroll bg-black/[.05] dark:bg-white/[.06] p-2 sm:p-4">
+          <pre className="text-xs sm:text-sm text-left font-[family-name:var(--font-geist-mono)] rounded font-semibold">
+            <code>
+              {biography}
+            </code>
+          </pre>
+        </div>
 
         <WhatsTheWeather />
       </main>
