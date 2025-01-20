@@ -97,7 +97,7 @@ export default function WhatsTheWeather() {
                     >
                         <Image
                             className="dark:invert"
-                            src="/weather.svg"
+                            src="./weather.svg"
                             alt="Weather"
                             width={20}
                             height={20}

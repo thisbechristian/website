@@ -29,7 +29,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="rounded-full self-center border-4 border-zinc-50 dark:border-zinc-800"
-          src="/me.jpg"
+          src="./me.jpg"
           alt="Me"
           width={250}
           height={250}
@@ -52,7 +52,7 @@ export default function Home() {
           <Image
             className="dark:invert"
             aria-hidden
-            src="/email.svg"
+            src="./email.svg"
             alt="Email"
             width={20}
             height={20}
@@ -68,7 +68,7 @@ export default function Home() {
           <Image
             className="dark:invert"
             aria-hidden
-            src="/linkedin.svg"
+            src="./linkedin.svg"
             alt="LinkedIn"
             width={20}
             height={20}
@@ -84,7 +84,7 @@ export default function Home() {
           <Image
             className="dark:invert"
             aria-hidden
-            src="/github.svg"
+            src="./github.svg"
             alt="GitHub"
             width={20}
             height={20}
