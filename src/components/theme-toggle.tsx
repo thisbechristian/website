@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { trackEvent } from "./analytics";
 
 export default function ThemeToggle() {
     const { setTheme, resolvedTheme: theme } = useTheme()
@@ -9,6 +10,7 @@ export default function ThemeToggle() {
     const toggleTheme = (off: boolean) => {
         const theme: string = off ? "light" : "dark";
         setTheme(theme);
+        trackEvent("theme_toggled", { event_category: "Theme", event_label: `Theme Change (${theme})`, value: 1 });
     }
 
     return (

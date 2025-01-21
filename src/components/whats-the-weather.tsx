@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Spinner from "./spinner";
+import { trackEvent } from "./analytics";
 
 interface Forecast {
     timestamp: Date;
@@ -62,6 +63,7 @@ export default function WhatsTheWeather() {
     const [unit, setUnit] = useState<string>("fahrenheit");
 
     const getWeatherForecast = async (unit: string) => {
+        trackEvent("get_forecast", { event_category: "Weather", event_label: `Forecast (${unit})`, value: 1 });
         try {
             setLoading(true);
             setForecast(null);

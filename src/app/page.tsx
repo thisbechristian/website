@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Spinner from "@/components/spinner";
+import { trackEvent } from "@/components/analytics";
 const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false, loading: () => <Spinner /> });
 const WhatsTheWeather = dynamic(() => import("@/components/whats-the-weather"), { ssr: false, loading: () => <Spinner /> });
 
@@ -56,6 +57,7 @@ export default function Home() {
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
             href="mailto:christianjboni@gmail.com"
+            onClick={() => trackEvent("clicked_link", { event_category: "Link", event_label: "Email", value: 1 })}
           >
             <Image
               className="dark:invert"
@@ -72,6 +74,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/christianboni"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("clicked_link", { event_category: "Link", event_label: "LinkedIn", value: 1 })}
           >
             <Image
               className="dark:invert"
@@ -88,6 +91,7 @@ export default function Home() {
             href="https://github.com/thisbechristian?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("clicked_link", { event_category: "Link", event_label: "Github", value: 1 })}
           >
             <Image
               className="dark:invert"
