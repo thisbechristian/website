@@ -39,7 +39,7 @@ export default function Home() {
           priority
         />
 
-        <div className="max-w-[75vw] overflow-scroll bg-black/[.05] dark:bg-white/[.06] p-2 sm:p-4">
+        <div className="max-w-[75vw] overflow-auto bg-black/[.05] dark:bg-white/[.06] p-2 sm:p-4">
           <pre className="text-xs sm:text-sm text-left font-[family-name:var(--font-geist-mono)] rounded font-semibold">
             <code>
               {biography}
